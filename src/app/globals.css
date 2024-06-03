@@ -20,6 +20,7 @@ body {
   background: #040C18;
   color: white;
   font-family: Manrope, sans-serif;
+  min-width: 1200px;
 }
 
 @layer utilities {
