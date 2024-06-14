@@ -1,12 +1,12 @@
 import {Header} from "@/app/_sections/Header";
-import {MainSlide} from "@/app/_sections/MainSlide";
 import {LeaguesList} from "@/app/_sections/LeaguesList";
 import {Rating} from "@/app/_sections/Rating";
 import {LastNews} from "@/app/_sections/LastNews";
-import {Interview} from "@/app/_sections/Interview";
+import {InterviewList} from "@/app/_sections/Interview";
 import {Media} from "@/app/_sections/Media";
 import {Partners} from "@/app/_sections/Partners";
 import {Footer} from "@/app/_sections/Footer";
+import {MainSlide} from "@/app/_sections/MainSlide";
 
 export default function Home() {
   return (
@@ -28,7 +28,7 @@ export default function Home() {
         </div>
 
         <div className="col-span-3">
-          <Interview />
+          <InterviewList />
         </div>
 
         <div className="col-span-3">

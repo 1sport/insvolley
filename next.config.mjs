@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg'),
