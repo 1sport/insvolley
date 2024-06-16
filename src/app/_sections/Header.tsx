@@ -1,17 +1,15 @@
 import Logo from '@/shared/images/logo.svg'
+import {Socials} from "@/features/Socials";
+import {Menu} from "@/features/Menu";
 
 export const Header = () => {
   return (
     <div className="container py-10 flex justify-between items-end">
       <Logo />
-      <ul className="text-white flex gap-9">
-        <li>Новости</li>
-        <li>Календарь</li>
-        <li>Турниры</li>
-        <li>Сборные</li>
-        <li>Клубы</li>
-      </ul>
-      <div className="w-40" />
+      <Menu />
+      <div className="">
+        <Socials />
+      </div>
     </div>
   )
 }

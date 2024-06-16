@@ -48,9 +48,8 @@ const SlideItem = ({ data }: ItemProps) => {
            alt={""}
            className="absolute object-cover h-full w-full z-0"/>
 
-      <div className="h-[130px] bg-primary-500/85 z-10 py-4 px-10 flex flex-col items-start">
-        <Tag/>
-        <h2 className="font-semibold text-lg line-clamp-1 mt-2">
+      <div className="h-[120px] bg-primary-500/85 z-10 py-4 px-10 flex flex-col items-start">
+        <h2 className="font-semibold text-lg line-clamp-2 mt-2">
           {data.title}
         </h2>
         <span className="flex items-center gap-2 text-yellow">Подробнее <ArrowRight/></span>

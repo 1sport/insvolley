@@ -67,3 +67,8 @@ export type Author = {
 export type VideoMedia = {
   link: VideoEmbed
 }
+
+export type Partner = {
+  link: string
+  image: { data: StrapiMedia },
+}

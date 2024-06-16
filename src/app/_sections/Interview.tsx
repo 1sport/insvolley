@@ -54,7 +54,6 @@ const Item = ({ data }: ItemProps) => {
         </div>
         <div className="pl-6">
           <h3 className="font-bold">{data?.title}</h3>
-          <p>{data?.text}</p>
         </div>
         <div className="pl-6 flex justify-between items-end gap-10">
           <span className="w-full h-1.5 bg-white"/>

@@ -1,5 +1,5 @@
 import {instance} from "@/shared/api/api";
-import {Args, Interview, Post, Response, StrapiType, VideoMedia} from "@/shared/api/types";
+import {Args, Interview, Partner, Post, Response, StrapiType, VideoMedia} from "@/shared/api/types";
 import qs from 'qs'
 
 const revalidate = 0
@@ -41,8 +41,17 @@ const getVideoMedia = async ({ filters, limit, start }: Args): Promise<Response<
   })
 }
 
+const getPartners = (): Promise<Response<StrapiType<Partner>[]>> => {
+  return instance.strapi.get(`/partners?populate=image`, {
+    next: {
+      revalidate
+    }
+  });
+}
+
 export const api = {
   getPosts,
   getInterviews,
-  getVideoMedia
+  getVideoMedia,
+  getPartners
 }

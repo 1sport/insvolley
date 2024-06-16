@@ -31,10 +31,7 @@ const NewsItem = ({ post }: ItemProps) => {
       <img src={getImageUrl(post?.image)}
            alt={""}
            className="absolute object-cover h-full w-full z-0"/>
-
-
-      <div className="bg-primary-500/85 z-10 pt-3 pb-2 px-2 flex flex-col items-start">
-        <Tag size="s"/>
+      <div className="bg-primary-500/85 z-10 pt-2 pb-2 px-2 flex flex-col items-start">
         <h3 className="font-semibold text-xs line-clamp-2 mt-1">
           {post.title}
         </h3>
