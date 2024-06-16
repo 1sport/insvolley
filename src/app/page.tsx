@@ -1,14 +1,19 @@
 import {Header} from "@/app/_sections/Header";
-import {LeaguesList} from "@/app/_sections/LeaguesList";
-import {Rating} from "@/app/_sections/Rating";
 import {LastNews} from "@/app/_sections/LastNews";
 import {InterviewList} from "@/app/_sections/Interview";
 import {Media} from "@/app/_sections/Media";
 import {Partners} from "@/app/_sections/Partners";
 import {Footer} from "@/app/_sections/Footer";
 import {MainSlide} from "@/app/_sections/MainSlide";
+import {Ratings} from "@/app/_sections/Ratings";
+import {Tournaments} from "@/app/_sections/Tournaments";
+import {SearchParams} from "nuqs/server";
 
-export default function Home() {
+type Props = {
+  searchParams: { rating: string, tournament: string }
+}
+
+export default function Home({searchParams}: Props) {
   return (
     <main>
       <Header />
@@ -17,14 +22,14 @@ export default function Home() {
           <MainSlide />
         </div>
         <div className="col-span-1">
-          <LeaguesList />
+          <Tournaments type={searchParams.tournament} />
         </div>
 
         <div className="col-span-2">
           <LastNews />
         </div>
         <div className="col-span-1">
-          <Rating />
+          <Ratings type={searchParams.rating} />
         </div>
 
         <div className="col-span-3">

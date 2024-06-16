@@ -72,3 +72,18 @@ export type Partner = {
   link: string
   image: { data: StrapiMedia },
 }
+
+export type Tournament = {
+  name: string
+  number: number
+  games: number
+  points: number
+  wins: number
+  losses: number
+}
+
+export type Rating = {
+  name: string
+  number: number
+  points: number
+}

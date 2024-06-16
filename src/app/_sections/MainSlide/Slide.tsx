@@ -24,7 +24,6 @@ export const Slide = ({ data }: Props) => {
         slidesPerView={1}
         pagination={true}
         onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
         modules={[Pagination]}
       >
         {data?.map((item, index) => (
@@ -48,7 +47,7 @@ const SlideItem = ({ data }: ItemProps) => {
            alt={""}
            className="absolute object-cover h-full w-full z-0"/>
 
-      <div className="h-[120px] bg-primary-500/85 z-10 py-4 px-10 flex flex-col items-start">
+      <div className="h-[120px] bg-primary-500/85 z-10 py-4 px-6 flex flex-col items-start">
         <h2 className="font-semibold text-lg line-clamp-2 mt-2">
           {data.title}
         </h2>

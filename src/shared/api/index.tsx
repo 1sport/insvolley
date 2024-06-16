@@ -1,5 +1,5 @@
 import {instance} from "@/shared/api/api";
-import {Args, Interview, Partner, Post, Response, StrapiType, VideoMedia} from "@/shared/api/types";
+import {Args, Interview, Partner, Post, Rating, Response, StrapiType, Tournament, VideoMedia} from "@/shared/api/types";
 import qs from 'qs'
 
 const revalidate = 0
@@ -49,9 +49,31 @@ const getPartners = (): Promise<Response<StrapiType<Partner>[]>> => {
   });
 }
 
+const getTournaments = ({ filters }: Args): Promise<Response<StrapiType<Tournament>[]>> => {
+  return instance.strapi.get(`/turnirs?${qs.stringify({
+    filters,
+  })}`, {
+    next: {
+      revalidate
+    }
+  })
+}
+
+const getRatings = ({ filters }: Args): Promise<Response<StrapiType<Rating>[]>> => {
+  return instance.strapi.get(`/ratings?${qs.stringify({
+    filters,
+  })}`, {
+    next: {
+      revalidate
+    }
+  })
+}
+
 export const api = {
   getPosts,
   getInterviews,
   getVideoMedia,
-  getPartners
+  getPartners,
+  getTournaments,
+  getRatings
 }
