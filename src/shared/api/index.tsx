@@ -25,8 +25,16 @@ const getPosts = async ({ filters, limit, start }: Args): Promise<Response<Strap
   })
 }
 
+const getInterview = async (id: number): Promise<Response<StrapiType<Interview>>> => {
+  return instance.strapi.get(`/interviews/${id}?populate=image`, {
+    next: {
+      revalidate
+    }
+  })
+}
+
 const getInterviews = async ({ filters, limit, start }: Args): Promise<Response<StrapiType<Interview>[]>> => {
-  return instance.strapi.get(`/interviews?populate[0]=image&populate[1]=author&${qs.stringify({
+  return instance.strapi.get(`/interviews?populate=image&${qs.stringify({
     filters,
     "pagination[limit]": limit || 10,
     "pagination[start]": start || 0,
@@ -83,6 +91,7 @@ const getRatings = ({ filters }: Args): Promise<Response<StrapiType<Rating>[]>> 
 export const api = {
   getPost,
   getPosts,
+  getInterview,
   getInterviews,
   getVideoMedia,
   getPartners,

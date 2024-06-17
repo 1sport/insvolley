@@ -7,13 +7,13 @@ import TelegramIcon from '@/shared/images/telegram.svg'
 export const Socials = () => {
   return (
     <div className="flex gap-4">
-      <a href="instagram.com/insvolleykz" target="_blank" rel="noopener noreferrer">
+      <a href="https://instagram.com/insvolleykz" target="_blank" rel="noopener noreferrer">
         <InstagramIcon />
       </a>
       <a href="https://t.me/insaidkazvolley" target="_blank" rel="noopener noreferrer">
         <TelegramIcon />
       </a>
-      <a href="www.youtube.com/@insvolley" target="_blank" rel="noopener noreferrer">
+      <a href="https://youtube.com/@insvolley" target="_blank" rel="noopener noreferrer">
         <YoutubeIcon />
       </a>
     </div>

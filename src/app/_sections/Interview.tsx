@@ -3,6 +3,7 @@ import QuoteIcon from '@/shared/images/quote.svg'
 import {api} from "@/shared/api";
 import {Interview} from "@/shared/api/types";
 import {getImageUrl} from "@/shared/utils/image";
+import Link from "next/link";
 
 export const InterviewList = async () => {
 
@@ -23,7 +24,7 @@ export const InterviewList = async () => {
       <div className="grid grid-cols-2 gap-10">
         {data?.data?.map((item, index) =>
           <div key={index} className="col-span-1">
-            <Item data={item?.attributes} />
+            <InterviewItem data={item?.attributes} id={item.id} />
           </div>
         )}
       </div>
@@ -33,11 +34,12 @@ export const InterviewList = async () => {
 
 type ItemProps = {
   data: Interview
+  id: number
 }
 
-const Item = ({ data }: ItemProps) => {
+export const InterviewItem = ({ data, id }: ItemProps) => {
   return (
-    <div className="flex gap-10">
+    <Link href={`/interviews/${id}`} className="flex gap-10">
       <div>
         <div className="overflow-hidden rounded-full w-[140px] h-[140px] relative mb-2">
           <img src={getImageUrl(data?.image)}
@@ -60,6 +62,6 @@ const Item = ({ data }: ItemProps) => {
           <QuoteIcon width={16} height={16}/>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
