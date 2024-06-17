@@ -45,7 +45,7 @@ const Item = ({ data }: ItemProps) => {
                className="absolute object-cover object-top h-full w-full z-0"/>
         </div>
         <h4 className="text-center">
-          {data.author?.data?.attributes?.name}
+          {data.author}
         </h4>
       </div>
       <div className="flex flex-col">

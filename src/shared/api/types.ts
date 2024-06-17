@@ -57,12 +57,8 @@ export type Post = {
 export type Interview = {
   title: string
   text: any
-  author: { data: StrapiType<Author> }
+  author: string
   image: { data: StrapiMedia },
-}
-
-export type Author = {
-  name: string
 }
 
 export type VideoMedia = {
