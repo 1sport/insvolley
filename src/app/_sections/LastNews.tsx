@@ -26,7 +26,7 @@ type ItemProps = {
   id: number
 }
 
-const NewsItem = ({ post, id }: ItemProps) => {
+export const NewsItem = ({ post, id }: ItemProps) => {
   return (
     <Link href={`/news/${id}`} className="col-span-1 bg-primary-200 h-[232px] relative flex flex-col justify-end">
       <img src={getImageUrl(post?.image)}
