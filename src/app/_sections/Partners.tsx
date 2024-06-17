@@ -20,14 +20,12 @@ export const Partners = async () => {
           <span className="w-10 h-1.5 bg-white"/>
         </div>
 
-        <div className="grid grid-cols-3">
-          <div className="col-span-1">
-            {data.data.map((item, index) =>
-              <div key={index}>
-                <img src={getImageUrl(item.attributes.image)} alt="partner"/>
-              </div>
-            )}
-          </div>
+        <div className="grid grid-cols-3 gap-4 items-center">
+          {data.data.map((item, index) =>
+            <div key={index} className="col-span-1">
+              <img src={getImageUrl(item.attributes.image)} alt="partner" />
+            </div>
+          )}
         </div>
       </div>
     </div>

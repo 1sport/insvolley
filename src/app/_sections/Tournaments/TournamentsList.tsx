@@ -11,7 +11,7 @@ type Props = {
 export const TournamentsList = ({data}: Props) => {
   const [type, setType] = useQueryState('tournament')
   return (
-    <div className="bg-primary-200 h-[420px] flex flex-col">
+    <div className="bg-primary-200 h-[452px] flex flex-col">
       <div className="bg-primary-150 flex items-center justify-center uppercase font-extrabold text-xl py-3">
         Турнирная таблица
       </div>
@@ -49,7 +49,7 @@ export const TournamentsList = ({data}: Props) => {
           {data.map((item, index) =>
               <tr key={index}>
                 <td className="py-1 px-2">{item?.attributes?.number}</td>
-                <td className="py-1 px-2">{item?.attributes?.name}</td>
+                <td className="py-1 px-2 line-clamp-1">{item?.attributes?.name}</td>
                 <td className="py-1 px-2">{item?.attributes?.games}</td>
                 <td className="py-1 px-2">{item?.attributes?.wins}</td>
                 <td className="py-1 px-2">{item?.attributes?.losses}</td>

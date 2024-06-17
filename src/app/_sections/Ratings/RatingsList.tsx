@@ -12,7 +12,7 @@ export const RatingsList = ({data}:Props) => {
   const [type, setType] = useQueryState('rating')
 
   return (
-    <div className="bg-primary-200 h-[420px] flex flex-col">
+    <div className="bg-primary-200 h-[484px] flex flex-col">
       <div className="bg-primary-150 flex items-center justify-center uppercase font-extrabold text-xl py-3">
         Рейтинг сборных
       </div>

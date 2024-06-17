@@ -42,7 +42,7 @@ const Item = ({ data }: ItemProps) => {
         <div className="overflow-hidden rounded-full w-[140px] h-[140px] relative mb-2">
           <img src={getImageUrl(data?.image)}
                alt={""}
-               className="absolute object-cover h-full w-full z-0"/>
+               className="absolute object-cover object-top h-full w-full z-0"/>
         </div>
         <h4 className="text-center">
           {data.author?.data?.attributes?.name}

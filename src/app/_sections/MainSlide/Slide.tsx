@@ -42,7 +42,7 @@ type ItemProps = {
 
 const SlideItem = ({ data }: ItemProps) => {
   return (
-    <div className="h-[420px] flex flex-col justify-end">
+    <div className="h-[452px] flex flex-col justify-end">
       <img src={getImageUrl(data?.image)}
            alt={""}
            className="absolute object-cover h-full w-full z-0"/>

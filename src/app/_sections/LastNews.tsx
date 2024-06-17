@@ -27,7 +27,7 @@ type ItemProps = {
 
 const NewsItem = ({ post }: ItemProps) => {
   return (
-    <div className="col-span-1 bg-primary-200 h-[200px] relative flex flex-col justify-end">
+    <div className="col-span-1 bg-primary-200 h-[232px] relative flex flex-col justify-end">
       <img src={getImageUrl(post?.image)}
            alt={""}
            className="absolute object-cover h-full w-full z-0"/>
