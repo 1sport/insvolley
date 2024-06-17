@@ -29,7 +29,7 @@ export const RatingsList = ({data}:Props) => {
                 className={clsx(
                   "flex-1 flex items-center justify-center py-3",
                   {"bg-[#2369D3]": type === "man" || type === null},
-                  {"bg-gradient-to-r from-[#1B5C98] to-[#2E9AFE]":type === "woman"}
+                  {"bg-gradient-to-r from-[#2E9AFE] to-[#1B5C98]":type === "woman"}
                 )}>
           Женщины
         </button>
