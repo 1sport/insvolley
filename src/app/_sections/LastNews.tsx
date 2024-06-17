@@ -1,7 +1,7 @@
-import {Tag} from "@/shared/ui/Tag";
 import {api} from "@/shared/api";
 import {getImageUrl} from "@/shared/utils/image";
 import {Post} from "@/shared/api/types";
+import Link from "next/link";
 
 export const LastNews = async () => {
 
@@ -15,7 +15,7 @@ export const LastNews = async () => {
   return (
     <div className="grid grid-cols-3 gap-5">
       {data?.data.map((item, index) =>
-        <NewsItem key={index} post={item.attributes}  />
+        <NewsItem key={index} post={item.attributes} id={item.id}  />
       )}
     </div>
   )
@@ -23,11 +23,12 @@ export const LastNews = async () => {
 
 type ItemProps = {
   post: Post
+  id: number
 }
 
-const NewsItem = ({ post }: ItemProps) => {
+const NewsItem = ({ post, id }: ItemProps) => {
   return (
-    <div className="col-span-1 bg-primary-200 h-[232px] relative flex flex-col justify-end">
+    <Link href={`/news/${id}`} className="col-span-1 bg-primary-200 h-[232px] relative flex flex-col justify-end">
       <img src={getImageUrl(post?.image)}
            alt={""}
            className="absolute object-cover h-full w-full z-0"/>
@@ -36,6 +37,6 @@ const NewsItem = ({ post }: ItemProps) => {
           {post.title}
         </h3>
       </div>
-    </div>
+    </Link>
   )
 }

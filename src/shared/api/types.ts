@@ -50,6 +50,7 @@ export type Post = {
   title: string
   description: any
   date: string
+  createdAt: string
   image: { data: StrapiMedia },
 }
 

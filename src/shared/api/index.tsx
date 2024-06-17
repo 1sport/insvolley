@@ -4,6 +4,14 @@ import qs from 'qs'
 
 const revalidate = 0
 
+const getPost = async (id: number): Promise<Response<StrapiType<Post>>> => {
+  return instance.strapi.get(`/posts/${id}?populate=image`, {
+    next: {
+      revalidate
+    }
+  })
+}
+
 const getPosts = async ({ filters, limit, start }: Args): Promise<Response<StrapiType<Post>[]>> => {
   return instance.strapi.get(`/posts?populate=image&${qs.stringify({
     filters,
@@ -73,6 +81,7 @@ const getRatings = ({ filters }: Args): Promise<Response<StrapiType<Rating>[]>> 
 }
 
 export const api = {
+  getPost,
   getPosts,
   getInterviews,
   getVideoMedia,

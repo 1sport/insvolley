@@ -16,7 +16,6 @@ type Props = {
 export default function Home({searchParams}: Props) {
   return (
     <main>
-      <Header />
       <div className="container grid grid-cols-3 gap-5 mb-14">
         <div className="col-span-2">
           <MainSlide />
@@ -42,8 +41,6 @@ export default function Home({searchParams}: Props) {
       </div>
 
       <Partners />
-
-      <Footer />
     </main>
   );
 }

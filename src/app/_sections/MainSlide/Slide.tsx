@@ -11,6 +11,7 @@ import {Tag} from "@/shared/ui/Tag";
 import ArrowRight from '@/shared/images/arrow.svg'
 import {Post, StrapiType} from "@/shared/api/types";
 import {getImageUrl} from "@/shared/utils/image";
+import Link from "next/link";
 
 type Props = {
   data: StrapiType<Post>[]
@@ -28,7 +29,7 @@ export const Slide = ({ data }: Props) => {
       >
         {data?.map((item, index) => (
           <SwiperSlide key={index}>
-            <SlideItem data={item.attributes} />
+            <SlideItem data={item.attributes} id={item.id} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -38,11 +39,12 @@ export const Slide = ({ data }: Props) => {
 
 type ItemProps = {
   data: Post
+  id: number
 }
 
-const SlideItem = ({ data }: ItemProps) => {
+const SlideItem = ({ data, id }: ItemProps) => {
   return (
-    <div className="h-[452px] flex flex-col justify-end">
+    <Link href={`/news/${id}`} className="h-[452px] flex flex-col justify-end">
       <img src={getImageUrl(data?.image)}
            alt={""}
            className="absolute object-cover h-full w-full z-0"/>
@@ -53,6 +55,6 @@ const SlideItem = ({ data }: ItemProps) => {
         </h2>
         <span className="flex items-center gap-2 text-yellow">Подробнее <ArrowRight/></span>
       </div>
-    </div>
+    </Link>
   )
 }
