@@ -1,8 +1,19 @@
 import {instance} from "@/shared/api/api";
-import {Args, Interview, Partner, Post, Rating, Response, StrapiType, Tournament, VideoMedia} from "@/shared/api/types";
+import {
+  Args,
+  Calendar,
+  Interview,
+  Partner,
+  Post,
+  Rating,
+  Response,
+  StrapiType,
+  Tournament,
+  VideoMedia
+} from "@/shared/api/types";
 import qs from 'qs'
 
-const revalidate = 0
+const revalidate = 60
 
 const getPost = async (id: number): Promise<Response<StrapiType<Post>>> => {
   return instance.strapi.get(`/posts/${id}?populate=image`, {
@@ -88,6 +99,18 @@ const getRatings = ({ filters }: Args): Promise<Response<StrapiType<Rating>[]>> 
   })
 }
 
+const getCalendar = (): Promise<Response<StrapiType<Calendar>[]>> => {
+  return instance.strapi.get(`/calendars?${qs.stringify({
+    "pagination[limit]": 1,
+    "sort[0]": "createdAt:desc",
+    "populate": "events"
+  })}`, {
+    next: {
+      revalidate
+    }
+  })
+}
+
 export const api = {
   getPost,
   getPosts,
@@ -96,5 +119,6 @@ export const api = {
   getVideoMedia,
   getPartners,
   getTournaments,
-  getRatings
+  getRatings,
+  getCalendar
 }

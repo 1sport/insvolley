@@ -13,7 +13,11 @@ export const Menu = ({ horizontal = false }: Props) => {
           Новости
         </Link>
       </li>
-      <li>Календарь</li>
+      <li>
+        <Link href="/calendar">
+          Календарь
+        </Link>
+      </li>
       <li>
         <Link href="/interviews">
           Интервью

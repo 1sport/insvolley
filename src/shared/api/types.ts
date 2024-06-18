@@ -84,3 +84,16 @@ export type Rating = {
   number: number
   points: number
 }
+
+export type Calendar = {
+  name: string
+  events: CalendarEvent[]
+}
+
+export type CalendarEvent = {
+  id: number
+  date: string
+  name: string
+  place: string
+  type: string
+}
