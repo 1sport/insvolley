@@ -16,7 +16,7 @@ export default async function InterviewPage({ params }: Props) {
   return (
     <main className="container mx-auto grid grid-cols-6 mb-16">
       <div className="lg:col-span-1"/>
-      <div className="col-span-4">
+      <div className="sm:col-span-4 col-span-6">
         <div className="flex gap-10 mb-8">
           <div>
             <div className="overflow-hidden rounded-full w-[140px] h-[140px] relative mb-2">
