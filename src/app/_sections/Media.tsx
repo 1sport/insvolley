@@ -1,4 +1,5 @@
 import {api} from "@/shared/api";
+import {Skeleton} from "@/shared/ui/Skeleton";
 
 export const Media = async () => {
   const data = await api.getVideoMedia({
@@ -24,3 +25,26 @@ export const Media = async () => {
     </div>
   )
 }
+
+function MediaSkeleton() {
+  return (
+    <div className="bg-gradient-primary py-6 px-6">
+      <div className="flex gap-4 items-center mb-6">
+        <span className="w-10 h-1.5 bg-white"/>
+        <h3 className="font-extrabold text-2xl">
+          Медиа
+        </h3>
+        <span className="w-10 h-1.5 bg-white"/>
+      </div>
+
+      <div className="grid grid-cols-4 gap-4">
+        <Skeleton className="col-span-1 xl:h-[200px] lg:h-[220px] md:h-[180px] h-[220px]"/>
+        <Skeleton className="col-span-1 xl:h-[200px] lg:h-[220px] md:h-[180px] h-[220px]"/>
+        <Skeleton className="col-span-1 xl:h-[200px] lg:h-[220px] md:h-[180px] h-[220px]"/>
+        <Skeleton className="col-span-1 xl:h-[200px] lg:h-[220px] md:h-[180px] h-[220px]"/>
+      </div>
+    </div>
+  )
+}
+
+Media.Skeleton = MediaSkeleton

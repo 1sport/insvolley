@@ -6,6 +6,15 @@ export type Args = {
 }
 export type Response<T> = {
   data: T
+  "meta": {
+    "pagination": Pagination
+  }
+}
+
+export type Pagination = {
+  "start": number,
+  "limit": number,
+  "total": number
 }
 
 export type StrapiType<T> = {

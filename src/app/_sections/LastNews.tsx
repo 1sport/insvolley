@@ -2,8 +2,9 @@ import {api} from "@/shared/api";
 import {getImageUrl} from "@/shared/utils/image";
 import {Post} from "@/shared/api/types";
 import Link from "next/link";
+import {Skeleton} from "@/shared/ui/Skeleton";
 
-export const LastNews = async () => {
+const LastNews = async () => {
 
   const data = await api.getPosts({
     limit: 6,
@@ -40,3 +41,20 @@ export const NewsItem = ({ post, id }: ItemProps) => {
     </Link>
   )
 }
+
+function NewsSkeleton() {
+  return (
+    <div className="grid grid-cols-3 gap-5">
+      <Skeleton className="col-span-1 h-[232px]" />
+      <Skeleton className="col-span-1 h-[232px]" />
+      <Skeleton className="col-span-1 h-[232px]" />
+      <Skeleton className="col-span-1 h-[232px]" />
+      <Skeleton className="col-span-1 h-[232px]" />
+      <Skeleton className="col-span-1 h-[232px]" />
+    </div>
+  )
+}
+
+LastNews.Skeleton = NewsSkeleton;
+
+export { LastNews }

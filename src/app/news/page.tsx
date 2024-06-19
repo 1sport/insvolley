@@ -1,21 +1,16 @@
-import {api} from "@/shared/api";
-import {NewsItem} from "@/app/_sections/LastNews";
+import {NewsList} from "@/app/_sections/NewsList";
+import {Suspense} from "react";
 
-export default async function NewsPage() {
-  const response = await api.getPosts({
-    limit: 100
-  })
+type Props = {
+  searchParams: { page: string }
+}
 
-  const posts = response.data || []
-
+export default async function NewsPage({ searchParams }: Props) {
   return (
-    <main className="container mx-auto grid lg:grid-cols-3 grid-cols-1 px-4 lg:px-0 gap-x-10 gap-y-8 pb-28">
-      {posts.map(item => (
-        <div key={item.id} className="flex-1">
-          <NewsItem post={item.attributes} id={item.id} />
-        </div>
-      ))}
-
+    <main className="container mx-auto pb-28">
+      <Suspense fallback={<NewsList.Skeleton />}>
+        <NewsList page={searchParams.page} />
+      </Suspense>
     </main>
   )
 }

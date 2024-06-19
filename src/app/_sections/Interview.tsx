@@ -4,6 +4,7 @@ import {api} from "@/shared/api";
 import {Interview} from "@/shared/api/types";
 import {getImageUrl} from "@/shared/utils/image";
 import Link from "next/link";
+import {Skeleton} from "@/shared/ui/Skeleton";
 
 export const InterviewList = async () => {
 
@@ -65,3 +66,26 @@ export const InterviewItem = ({ data, id }: ItemProps) => {
     </Link>
   )
 }
+
+function InterviewListSkeleton() {
+  return (
+    <div className="bg-primary-200 py-6 px-6">
+      <div className="flex gap-4 items-center mb-6">
+        <span className="w-10 h-1.5 bg-white"/>
+        <h3 className="font-extrabold text-2xl">
+          Интервью
+        </h3>
+        <span className="w-10 h-1.5 bg-white"/>
+      </div>
+
+      <div className="grid grid-cols-2 gap-10">
+        <Skeleton className="col-span-1 h-[196px]"/>
+        <Skeleton className="col-span-1 h-[196px]"/>
+        <Skeleton className="col-span-1 h-[196px]"/>
+        <Skeleton className="col-span-1 h-[196px]"/>
+      </div>
+    </div>
+  )
+}
+
+InterviewList.Skeleton = InterviewListSkeleton

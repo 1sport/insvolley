@@ -8,6 +8,7 @@ import {MainSlide} from "@/app/_sections/MainSlide";
 import {Ratings} from "@/app/_sections/Ratings";
 import {Tournaments} from "@/app/_sections/Tournaments";
 import {SearchParams} from "nuqs/server";
+import {Suspense} from "react";
 
 type Props = {
   searchParams: { rating: string, tournament: string }
@@ -18,29 +19,43 @@ export default function Home({searchParams}: Props) {
     <main>
       <div className="container grid grid-cols-3 gap-5 mb-14">
         <div className="col-span-2">
-          <MainSlide />
+          <Suspense fallback={<MainSlide.Skeleton />}>
+            <MainSlide />
+          </Suspense>
         </div>
         <div className="col-span-1">
-          <Tournaments type={searchParams.tournament} />
+          <Suspense fallback={<Tournaments.Skeleton />}>
+            <Tournaments type={searchParams.tournament} />
+          </Suspense>
         </div>
 
         <div className="col-span-2">
-          <LastNews />
+          <Suspense fallback={<LastNews.Skeleton />}>
+            <LastNews />
+          </Suspense>
         </div>
         <div className="col-span-1">
-          <Ratings type={searchParams.rating} />
+          <Suspense fallback={<Ratings.Skeleton />}>
+            <Ratings type={searchParams.rating} />
+          </Suspense>
         </div>
 
         <div className="col-span-3">
-          <InterviewList />
+          <Suspense fallback={<InterviewList.Skeleton />}>
+            <InterviewList />
+          </Suspense>
         </div>
 
         <div className="col-span-3">
-          <Media />
+          <Suspense fallback={<Media.Skeleton />}>
+            <Media />
+          </Suspense>
         </div>
       </div>
 
-      <Partners />
+      <Suspense fallback={<div />}>
+        <Partners />
+      </Suspense>
     </main>
   );
 }
