@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <div className="bg-primary-150">
       <div className="container py-[75px] grid grid-cols-3 gap-4">
-        <div className="col-span-1">
+        <div className="md:col-span-1 md:row-span-1 col-span-2 row-span-2">
           <Logo/>
           <div className="mt-[75px]">
             Республика Казахстан, 010000,<br/>
@@ -21,7 +21,7 @@ export const Footer = () => {
         <div className="col-span-1">
           <Menu horizontal />
         </div>
-        <div className="col-span-a flex justify-end">
+        <div className="col-span-1 flex justify-end">
           <Socials />
         </div>
       </div>

@@ -17,36 +17,36 @@ type Props = {
 export default function Home({searchParams}: Props) {
   return (
     <main>
-      <div className="container grid grid-cols-3 gap-5 mb-14">
-        <div className="col-span-2">
+      <div className="container grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 mb-14">
+        <div className="col-span-2 lg:order-1 order-1">
           <Suspense fallback={<MainSlide.Skeleton />}>
             <MainSlide />
           </Suspense>
         </div>
-        <div className="col-span-1">
+        <div className="sm:col-span-1 col-span-2 lg:order-2 order-3">
           <Suspense fallback={<Tournaments.Skeleton />}>
             <Tournaments type={searchParams.tournament} />
           </Suspense>
         </div>
 
-        <div className="col-span-2">
+        <div className="col-span-2 lg:order-3 order-2">
           <Suspense fallback={<LastNews.Skeleton />}>
             <LastNews />
           </Suspense>
         </div>
-        <div className="col-span-1">
+        <div className="sm:col-span-1 col-span-2 lg:order-4 order-4">
           <Suspense fallback={<Ratings.Skeleton />}>
             <Ratings type={searchParams.rating} />
           </Suspense>
         </div>
 
-        <div className="col-span-3">
+        <div className="lg:col-span-3 col-span-2 lg:order-5 order-5">
           <Suspense fallback={<InterviewList.Skeleton />}>
             <InterviewList />
           </Suspense>
         </div>
 
-        <div className="col-span-3">
+        <div className="lg:col-span-3 col-span-2 lg:order-6 order-6">
           <Suspense fallback={<Media.Skeleton />}>
             <Media />
           </Suspense>

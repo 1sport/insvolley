@@ -19,15 +19,15 @@ export default async function CalendarPage() {
         defaultChecked
       >
         <TabsList className="gap-0">
-          <TabsTrigger className="bg-[#0E284F] data-[state=active]:bg-[#133861] rounded-b-none px-10 text-2xl" value="man">Мужчины</TabsTrigger>
-          <TabsTrigger className="bg-[#0E284F] data-[state=active]:bg-[#133861] rounded-b-none px-10 text-2xl" value="woman">Женщины</TabsTrigger>
+          <TabsTrigger className="bg-[#0E284F] data-[state=active]:bg-[#133861] rounded-b-none px-10 sm:text-2xl text-md" value="man">Мужчины</TabsTrigger>
+          <TabsTrigger className="bg-[#0E284F] data-[state=active]:bg-[#133861] rounded-b-none px-10 sm:text-2xl text-md" value="woman">Женщины</TabsTrigger>
         </TabsList>
         <div className="px-4">
           <TabsContent value="man">
-            <ManTable name={data.name} events={data.events.filter(item => item.type === "Мужчины")} />
+            <Table name={data.name} events={data.events.filter(item => item.type === "Мужчины")} />
           </TabsContent>
           <TabsContent value="woman">
-            <WomanTable name={data.name} events={data.events.filter(item => item.type === "Женщины")} />
+            <Table name={data.name} events={data.events.filter(item => item.type === "Женщины")} />
           </TabsContent>
         </div>
       </Tabs>
@@ -40,50 +40,24 @@ type TableProps = {
   events: CalendarEvent[]
 }
 
-function ManTable({name, events}: TableProps) {
+function Table({name, events}: TableProps) {
   return (
     <div className="bg-[#133861] rounded-r-lg rounded-bl-lg">
-      <div className="flex justify-center py-6 px-2 text-2xl font-bold">{name}</div>
+      <div className="flex justify-center py-6 px-2 sm:text-2xl text-md font-bold">{name}</div>
       <table className="w-full">
         <thead>
           <tr className="shadow-lg">
-            <th className="text-left px-4 py-4 bg-[#2D64A2]">Дата</th>
-            <th className="text-left px-4 py-4 bg-[#2D64A2]">Событие</th>
-            <th className="text-left px-4 py-4 bg-[#2D64A2]">Место проведения</th>
+            <th className="text-left sm:px-4 px-1 py-4 bg-[#2D64A2] sm:text-md text-sm">Дата</th>
+            <th className="text-left sm:px-4 px-1 py-4 bg-[#2D64A2] sm:text-md text-sm">Событие</th>
+            <th className="text-left sm:px-4 px-1 py-4 bg-[#2D64A2] sm:text-md text-sm">Место проведения</th>
           </tr>
         </thead>
         <tbody>
           {events.map((item, index) =>
             <tr key={index}>
-              <td className="text-left px-4 py-3 border-b border-b-primary-150">{item.date}</td>
-              <td className="text-left px-4 py-3 border-b border-b-primary-150">{item.name}</td>
-              <td className="text-left px-4 py-3 border-b border-b-primary-150">{item.place}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    </div>
-  )
-}
-
-function WomanTable({name, events}: TableProps) {
-  return (
-    <div className="bg-[#133861] rounded-r-lg rounded-bl-lg">
-      <div className="flex justify-center py-6 px-2 text-2xl font-bold">{name}</div>
-      <table className="w-full">
-      <thead>
-        <tr className="shadow-lg">
-          <th className="text-left px-4 py-4 bg-[#2D64A2]">Дата</th>
-          <th className="text-left px-4 py-4 bg-[#2D64A2]">Событие</th>
-          <th className="text-left px-4 py-4 bg-[#2D64A2]">Место проведения</th>
-        </tr>
-        </thead>
-        <tbody>
-          {events.map((item, index) =>
-            <tr key={index}>
-              <td className="text-left px-4 py-3 border-b border-b-primary-150">{item.date}</td>
-              <td className="text-left px-4 py-3 border-b border-b-primary-150">{item.name}</td>
-              <td className="text-left px-4 py-3 border-b border-b-primary-150">{item.place}</td>
+              <td className="text-left sm:px-4 px-1 py-3 border-b border-b-primary-150 sm:text-md text-sm">{item.date}</td>
+              <td className="text-left sm:px-4 px-1 py-3 border-b border-b-primary-150 sm:text-md text-sm">{item.name}</td>
+              <td className="text-left sm:px-4 px-1 py-3 border-b border-b-primary-150 sm:text-md text-sm">{item.place}</td>
             </tr>
           )}
         </tbody>

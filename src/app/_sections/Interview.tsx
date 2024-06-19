@@ -22,7 +22,7 @@ export const InterviewList = async () => {
         <span className="w-10 h-1.5 bg-white"/>
       </div>
 
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
         {data?.data?.map((item, index) =>
           <div key={index} className="col-span-1">
             <InterviewItem data={item?.attributes} id={item.id} />

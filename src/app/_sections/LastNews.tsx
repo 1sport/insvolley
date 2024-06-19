@@ -14,7 +14,7 @@ const LastNews = async () => {
   })
 
   return (
-    <div className="grid grid-cols-3 gap-5">
+    <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
       {data?.data.map((item, index) =>
         <NewsItem key={index} post={item.attributes} id={item.id}  />
       )}
