@@ -23,7 +23,7 @@ export default function Home({searchParams}: Props) {
             <MainSlide />
           </Suspense>
         </div>
-        <div className="sm:col-span-1 col-span-2 lg:order-2 order-3">
+        <div className="sm:col-span-1 col-span-2 lg:order-2 sm:order-3 order-4">
           <Suspense fallback={<Tournaments.Skeleton />}>
             <Tournaments type={searchParams.tournament} />
           </Suspense>
@@ -34,13 +34,13 @@ export default function Home({searchParams}: Props) {
             <LastNews />
           </Suspense>
         </div>
-        <div className="sm:col-span-1 col-span-2 lg:order-4 order-4">
+        <div className="sm:col-span-1 col-span-2 lg:order-4 sm:order-4 order-5">
           <Suspense fallback={<Ratings.Skeleton />}>
             <Ratings type={searchParams.rating} />
           </Suspense>
         </div>
 
-        <div className="lg:col-span-3 col-span-2 lg:order-5 order-5">
+        <div className="lg:col-span-3 col-span-2 lg:order-5 sm:order-5 order-3">
           <Suspense fallback={<InterviewList.Skeleton />}>
             <InterviewList />
           </Suspense>
