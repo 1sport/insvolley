@@ -1,10 +1,11 @@
 "use client"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import Image from "next/image";
 import {Tag} from "@/shared/ui/Tag";
 
@@ -24,8 +25,9 @@ export const Slide = ({ data }: Props) => {
         spaceBetween={50}
         slidesPerView={1}
         pagination={true}
+        navigation={true}
         onSlideChange={() => console.log('slide change')}
-        modules={[Pagination]}
+        modules={[Pagination, Navigation]}
       >
         {data?.map((item, index) => (
           <SwiperSlide key={index}>

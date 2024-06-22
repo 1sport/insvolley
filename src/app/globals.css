@@ -44,6 +44,10 @@ span.swiper-pagination-bullet {
   background: transparent;
 }
 
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+  z-index: 10;
+}
+
 
 .youtube-video {
   width: 100%;
